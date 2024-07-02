@@ -1,0 +1,24 @@
+﻿@page "/"
+@using BLL_Shared.Configurations
+@using ShopFloorBlazorWebApp.Client.Pages.Charts
+@using ShopFloorBlazorWebApp.Client.Pages.Configurations.Charts
+
+<h3>BigScreen</h3>
+
+<ConfigProxyPage ViewType="@viewType"/>
+
+<p>BarChart</p>
+<BarChart/>
+
+<p>HorizontalBarChart</p>
+<HorizontalBarChart />
+
+<p>LineChart</p>
+<LineChart />
+
+<p>PieChart</p>
+<PieChart />
+
+@code {
+        private ViewType viewType = ViewType.Chart;
+}

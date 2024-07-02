@@ -1,0 +1,40 @@
+﻿@using BLL_Shared.DAL
+@using DevExpress.Blazor;
+@using ShopFloorBlazorWebApp.Client.Models
+@rendermode InteractiveServer
+
+
+<DxChart Data="@items" Rotated="true">
+    <DxChartBarSeries ArgumentField="@((BarChartDataModel i) => i.X)"
+                      ValueField="@((BarChartDataModel i) => i.Y)"
+                      Name="Precipitation">
+    </DxChartBarSeries>
+
+    <DxChartLineSeries ArgumentField="@((BarChartDataModel i) => i.X)"
+                       ValueField="@((BarChartDataModel i) => i.Y)"
+                       Name="Temperature">
+    </DxChartLineSeries>
+
+    <DxChartLegend Visible="false" />
+
+</DxChart>
+
+
+@code {
+    [Inject]
+    public IDBService DBService { get; set; } = default!;
+    private IEnumerable<BarChartDataModel> items = new List<BarChartDataModel>();
+
+    protected override void OnInitialized()
+    {
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                items = await DBService.LoadAsync<BarChartDataModel>("XYData");
+                await InvokeAsync(StateHasChanged);
+                Task.Delay(2000).Wait();
+            }
+        });
+    }
+}

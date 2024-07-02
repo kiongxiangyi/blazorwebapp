@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\ShopFloorBlazorWebApp\\ShopFloorBlazorWebApp\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\ShopFloorBlazorWebApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\ShopFloorBlazorWebApp.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\ShopFloorBlazorWebApp\\ShopFloorBlazorWebApp\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\ShopFloorBlazorWebApp\\ShopFloorBlazorWebApp\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\ShopFloorBlazorWebApp\\ShopFloorBlazorWebApp\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\ShopFloorBlazorWebApp\\ShopFloorBlazorWebApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.ShopFloorBlazorWebApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.ShopFloorBlazorWebApp.props",
+      "PackagePath": "build\\ShopFloorBlazorWebApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ShopFloorBlazorWebApp.props",
+      "PackagePath": "buildMultiTargeting\\ShopFloorBlazorWebApp.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.ShopFloorBlazorWebApp.props",
+      "PackagePath": "buildTransitive\\ShopFloorBlazorWebApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

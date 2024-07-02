@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTMS_ShopfloorApp", "GTMS_ShopfloorApp\GTMS_ShopfloorApp.csproj", "{ACFBD2AA-8605-44AA-8510-BB2A17F62EE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopFloorBlazorWebApp", "ShopFloorBlazorWebApp\ShopFloorBlazorWebApp\ShopFloorBlazorWebApp.csproj", "{1F0B9938-3FC2-4ED3-9E84-80FA0E4DD38C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopFloorBlazorWebApp.Client", "ShopFloorBlazorWebApp\ShopFloorBlazorWebApp.Client\ShopFloorBlazorWebApp.Client.csproj", "{9B9BE77A-F9F4-4377-9CC3-8E1F23F0C511}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL_Shared", "BLL_Shared\BLL_Shared.csproj", "{7AB1CC51-E630-4BA4-AFEF-71FDF94CC9A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACFBD2AA-8605-44AA-8510-BB2A17F62EE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACFBD2AA-8605-44AA-8510-BB2A17F62EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACFBD2AA-8605-44AA-8510-BB2A17F62EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACFBD2AA-8605-44AA-8510-BB2A17F62EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0B9938-3FC2-4ED3-9E84-80FA0E4DD38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0B9938-3FC2-4ED3-9E84-80FA0E4DD38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0B9938-3FC2-4ED3-9E84-80FA0E4DD38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0B9938-3FC2-4ED3-9E84-80FA0E4DD38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9BE77A-F9F4-4377-9CC3-8E1F23F0C511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9BE77A-F9F4-4377-9CC3-8E1F23F0C511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9BE77A-F9F4-4377-9CC3-8E1F23F0C511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9BE77A-F9F4-4377-9CC3-8E1F23F0C511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB1CC51-E630-4BA4-AFEF-71FDF94CC9A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB1CC51-E630-4BA4-AFEF-71FDF94CC9A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB1CC51-E630-4BA4-AFEF-71FDF94CC9A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB1CC51-E630-4BA4-AFEF-71FDF94CC9A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF414E42-1A1F-4A6A-A96E-C4E71D55D8BA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.1.32.33:8080/tfs/gtms
+		SccProjectUniqueName0 = GTMS_ShopfloorApp\\GTMS_ShopfloorApp.csproj
+		SccProjectName0 = GTMS_ShopfloorApp
+		SccAuxPath0 = https://10.1.32.33/tfs/gtms
+		SccLocalPath0 = GTMS_ShopfloorApp
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+	EndGlobalSection
+EndGlobal

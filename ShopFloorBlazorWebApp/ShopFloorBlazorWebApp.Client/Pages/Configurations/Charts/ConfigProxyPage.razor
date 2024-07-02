@@ -1,0 +1,64 @@
+﻿@* @page "/"
+ *@@using BLL_Shared.Configurations
+@using BLL_Shared.Configurations.Charts
+@using DevExpress.Blazor
+@using ShopFloorBlazorWebApp.Client.Pages.Charts
+@rendermode InteractiveServer
+
+<div @onclick="@(() => PopupVisible = true)">
+    <p>CLICK TO SHOW A POP-UP WINDOW</p>
+</div>
+
+<DxPopup @bind-Visible="@PopupVisible"
+         HeaderText="Edit Contact"
+         ShowFooter="true">
+    <BodyTemplate Context="PopupContext">
+        <div class="layout-area">
+            @if (Page is not null)
+            {
+                @Page
+            }
+        </div>
+    </BodyTemplate>
+    <FooterContentTemplate>
+        <DxButton RenderStyle="ButtonRenderStyle.Primary" Text="OK"
+                  Click="@context.CloseCallback" />
+    </FooterContentTemplate>
+</DxPopup>
+
+@code {
+    [Parameter]
+    public ViewType ViewType { get; set; }
+    private RenderFragment? Page { get; set; }
+
+    bool PopupVisible { get; set; } = false;
+    private FormDataItem editFormData = new() { Name = "Nancy Davolio", BirthDate = DateTime.Now.AddYears(-30), YearsWorked = 3, Position = "Sales Representative" };
+
+    protected async override void OnInitialized()
+    {
+        await ShowRandomPage();
+    }
+
+    private async Task ShowRandomPage()
+    {
+        var pageType = ViewType switch
+        {
+            ViewType.Chart => typeof(BarChartConfig),
+            ViewType.Table => typeof(HorizontalBarChart)
+        };
+
+        Page = builder =>
+        {
+            builder.OpenComponent(0, pageType);
+            builder.CloseComponent();
+        };
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+
+    private void OnConfigSaved()
+    {
+        
+    }
+}

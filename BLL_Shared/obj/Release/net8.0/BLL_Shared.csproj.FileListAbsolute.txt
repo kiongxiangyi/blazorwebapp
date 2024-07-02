@@ -1,0 +1,12 @@
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\bin\Release\net8.0\BLL_Shared.deps.json
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\bin\Release\net8.0\BLL_Shared.dll
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\bin\Release\net8.0\BLL_Shared.pdb
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.csproj.AssemblyReference.cache
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.AssemblyInfoInputs.cache
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.AssemblyInfo.cs
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.csproj.CoreCompileInputs.cache
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.dll
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\refint\BLL_Shared.dll
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\BLL_Shared.pdb
+C:\TFS\Tools\GTMS_ShopfloorApp\BLL_Shared\obj\Release\net8.0\ref\BLL_Shared.dll

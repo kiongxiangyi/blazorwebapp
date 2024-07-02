@@ -1,0 +1,73 @@
+﻿@using BLL_Shared.Layouts;
+@using Orientation = BLL_Shared.Layouts.Orientation;
+@using ShopFloorBlazorWebApp.Client.Pages.Charts
+@rendermode InteractiveServer
+
+@if (Layout.Type == LayoutType.Area)
+{
+    // Area div
+    <div style="flex: @GetSizeStyle(Layout.Size);" class="layout-area">
+        <button class="setting-button">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+        </button>
+        @if (Page is not null)
+        {
+            @Page
+        }
+    </div>
+}
+else
+{
+    // Layout Holder div
+    <div style="flex: @GetSizeStyle(Layout.Size); flex-direction: @GetLayoutHolderClass(Layout.Orientation);" class="layout-holder">
+        @foreach (var layout in Layout)
+        {
+            <LayoutPage Layout="layout" />
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Layout Layout { get; set; } = default!;
+
+    private RenderFragment? Page { get; set; }
+
+    protected async override void OnInitialized()
+    {
+        await ShowRandomPage();
+    }
+
+    private async Task ShowRandomPage()
+    {
+        List<Type> pages = new List<Type>{
+                typeof(BarChart),
+                typeof(HorizontalBarChart),
+                typeof(LineChart),
+                typeof(PieChart)
+            };
+
+        var random = new Random();
+        int index = random.Next(0, pages.Count);
+
+        var pageType = pages[index];
+
+        Page = builder =>
+        {
+            builder.OpenComponent(0, pageType);
+            builder.CloseComponent();
+        };
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private static string GetSizeStyle(Size size) => size switch
+    {
+        Size.Full => "100%",
+        Size.Half => "50%",
+        Size.OneThird => "33%",
+        Size.Quarter => "25%",
+        _ => throw new Exception("Unexpected size")
+    };
+    private static string GetLayoutHolderClass(Orientation orientation) => orientation == Orientation.Horizontal ? "row" : "column";
+}

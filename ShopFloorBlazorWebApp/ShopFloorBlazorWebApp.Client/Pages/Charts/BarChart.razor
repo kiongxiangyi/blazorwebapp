@@ -1,0 +1,81 @@
+﻿@using BLL_Shared.DAL
+@using DevExpress.Blazor;
+@using ShopFloorBlazorWebApp.Client.Models
+@rendermode InteractiveServer
+
+
+<DxChart Data="@items">
+    <DxChartTitle Text="Chart Title"></DxChartTitle>
+
+    <DxChartLegend Orientation="Orientation.Vertical"
+                   HorizontalAlignment="HorizontalAlignment.Right"
+                   Position="RelativePosition.Outside">
+        <DxChartTitle Text="Legend Title"></DxChartTitle>
+    </DxChartLegend>
+
+    <DxChartValueAxis>
+        <DxChartAxisLabel>
+            <DxChartFont Size="14" Weight="600" />
+        </DxChartAxisLabel>
+        <DxChartAxisTitle Text="Vertical Axis Title">
+            <DxChartFont Size="14" Weight="600" />
+        </DxChartAxisTitle>
+    </DxChartValueAxis>
+
+    <DxChartArgumentAxis>
+        <DxChartAxisTitle Text="Horizontal Axis Title"></DxChartAxisTitle>
+    </DxChartArgumentAxis>
+
+    <DxChartBarSeries   ArgumentField="@((BarChartDataModel i) => i.X)"
+                        ValueField="@((BarChartDataModel i) => i.Y)"
+                        Name="Precipitation"
+                        Color="@GetColor(1)">
+    </DxChartBarSeries>
+
+    <DxChartLineSeries  ArgumentField="@((BarChartDataModel i) => i.X)"
+                        ValueField="@((BarChartDataModel i) => i.Y)"
+                        Name="Temperature"
+                        Color="@GetColor(0)">
+    </DxChartLineSeries>
+
+
+</DxChart>
+
+
+@code {
+    //chart color variables
+    private System.Drawing.Color[] colors = new System.Drawing.Color[] {
+        System.Drawing.Color.Blue,
+        System.Drawing.Color.Red,
+        System.Drawing.Color.Green,
+        System.Drawing.Color.Orange,
+        System.Drawing.Color.Purple,
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.Teal
+    };
+
+    // Method to get color by index
+    private System.Drawing.Color GetColor(int index)
+    {
+        return colors[index % colors.Length];
+    }
+
+    [Inject]
+    public IDBService DBService { get; set; } = default!;
+    private IEnumerable<BarChartDataModel> items = new List<BarChartDataModel>();
+
+    protected override void OnInitialized()
+    {
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                items = await DBService.LoadAsync<BarChartDataModel>("XYData");
+                await InvokeAsync(StateHasChanged);
+                Task.Delay(2000).Wait();
+            }
+        });
+    }
+
+    
+}

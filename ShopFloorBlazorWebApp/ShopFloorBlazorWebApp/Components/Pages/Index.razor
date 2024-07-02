@@ -1,0 +1,75 @@
+﻿@page "/index"
+
+@using Syncfusion.Blazor.Data;
+
+<div class="control_wrapper">
+    <SfDropDownList TValue="string" TItem="DropdownDataModel" PopupHeight="400px"
+                    PopupWidth="350px" Placeholder="Select a country" DataSource="@DropdownListData">
+        <DropDownListFieldSettings Value="CountryId" Text="CountryName"></DropDownListFieldSettings>
+        <DropDownListEvents ValueChange="OnCountryChange" TItem="DropdownDataModel" TValue="string">
+        </DropDownListEvents>
+    </SfDropDownList>
+</div>
+<div class="control_wrapper">
+    <SfDropDownList PopupHeight="400px" PopupWidth="350px" TItem="DropdownDataModel" TValue="string"
+                    DataSource="@DropdownListData1" Placeholder="Select a state"
+                    Enabled="@EnableDropdownList" Query="DataQuery">
+        <DropDownListFieldSettings Value="StateId" Text="StateName"></DropDownListFieldSettings>
+    </SfDropDownList>
+</div>
+
+
+@code {
+
+    public bool EnableDropdownList = false;
+    public Query DataQuery { get; set; } = null;
+    public void OnCountryChange(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, DropdownDataModel> args)
+    {
+        this.EnableDropdownList = true;
+        this.DataQuery = new Query().Where(new WhereFilter() { Field = "CountryId", Operator = "equal", value = args.Value });
+    }
+
+    public class DropdownDataModel
+    {
+        public int CountryId { get; set; }
+        public string CountryName { get; set; }
+        public int StateId { get; set; }
+        public string StateName { get; set; }
+    }
+
+    List<DropdownDataModel> DropdownListData = new List<DropdownDataModel>()
+    {
+        new DropdownDataModel() {  CountryId = 1, CountryName = "United States" },
+        new DropdownDataModel() {  CountryId = 2, CountryName = "Australia" }
+    };
+
+    List<DropdownDataModel> DropdownListData1 = new List<DropdownDataModel>()
+    {
+        new DropdownDataModel() {  StateId = 101, StateName = "New York", CountryId = 1 },
+        new DropdownDataModel() {  StateId = 102, StateName = "Virginia", CountryId = 1 },
+        new DropdownDataModel() {  StateId = 103, StateName = "Tasmania", CountryId = 2 },
+        new DropdownDataModel() {  StateId = 104, StateName = "Victoria", CountryId = 2 },
+        new DropdownDataModel() {  StateId = 105, StateName = "Queensland", CountryId = 2 }
+    };
+
+}
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    .control_wrapper {
+        width: 350px;
+        margin-left: 30%;
+        margin-right: 40%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+</style>

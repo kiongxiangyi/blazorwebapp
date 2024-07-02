@@ -1,0 +1,91 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = ShopFloorBlazorWebApp.Client
+build_property.RootNamespace = ShopFloorBlazorWebApp.Client
+build_property.ProjectDir = C:\Users\kiong\source\repos\GTMS_ShopfloorApp\ShopFloorBlazorWebApp\ShopFloorBlazorWebApp.Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\kiong\source\repos\GTMS_ShopfloorApp\ShopFloorBlazorWebApp\ShopFloorBlazorWebApp.Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/BigScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmlnU2NyZWVuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Charts/BarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzXEJhckNoYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Charts/HorizontalBarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzXEhvcml6b250YWxCYXJDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Charts/LineChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzXExpbmVDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Charts/PieChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcnRzXFBpZUNoYXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Configurations/Charts/BarChartConfig.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlndXJhdGlvbnNcQ2hhcnRzXEJhckNoYXJ0Q29uZmlnLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Configurations/Charts/ConfigProxyPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlndXJhdGlvbnNcQ2hhcnRzXENvbmZpZ1Byb3h5UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Configurations/LayoutSchemeSelector.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlndXJhdGlvbnNcTGF5b3V0U2NoZW1lU2VsZWN0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Configurations/UserConfiguration.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uZmlndXJhdGlvbnNcVXNlckNvbmZpZ3VyYXRpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/FullStackedBarChart - Copy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnVsbFN0YWNrZWRCYXJDaGFydCAtIENvcHkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/FullStackedBarChart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnVsbFN0YWNrZWRCYXJDaGFydC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Layouts/LayoutHolder.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGF5b3V0c1xMYXlvdXRIb2xkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Layouts/LayoutHolder1.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGF5b3V0c1xMYXlvdXRIb2xkZXIxLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Layouts/LayoutPage.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGF5b3V0c1xMYXlvdXRQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Test.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/Pages/Testlayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdGxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kiong/source/repos/GTMS_ShopfloorApp/ShopFloorBlazorWebApp/ShopFloorBlazorWebApp.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

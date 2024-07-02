@@ -1,0 +1,251 @@
+﻿@page "/configuration"
+@using System.Collections.Generic
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@rendermode InteractiveServer
+@using System
+@using BLL_Shared.Configurations
+@using BLL_Shared.Layouts;
+@using Orientation = BLL_Shared.Layouts.Orientation;
+@using System.Web
+@using ShopFloorBlazorWebApp.Client.Pages.Layouts
+
+<PageTitle>Configuration</PageTitle>
+
+<style>
+    /* Container for the configuration and layout sections */
+    .main-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    /* Styling for the configuration container */
+    .configuration-container {
+        width: 20%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+        /* Center align the header */
+        .configuration-container h3 {
+            text-align: center;
+        }
+
+        /* Styling for labels */
+        .configuration-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* Styling for input fields and select dropdowns */
+        .configuration-container input,
+        .configuration-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the button */
+        .configuration-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            /* Button hover effect */
+            .configuration-container button:hover {
+                background-color: #45a049;
+            }
+
+    /* Styling for the layout container */
+    .layout-container {
+        width: 75%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f1f1f1;
+    }
+</style>
+
+<div class="main-container">
+    <div class="configuration-container">
+        <h3>Configuration</h3>
+
+        <!-- Input for Data Source Table Name -->
+        <div>
+            <label>Data Source Table Name:</label>
+            <input type="text" @bind="TableName" />
+        </div>
+
+        <!-- Input for Title of the Page -->
+        <div>
+            <label>Title of the Page:</label>
+            <input type="text" @bind="PageTitle" />
+        </div>
+
+        <!-- Dropdown to select the Number of Columns -->
+        <div>
+            <label>Number of Columns:</label>
+            <select id="NumberOfColumns" @bind="NumberOfColumns" @bind:event="onchange">
+                <option value="1">1 Column</option>
+                <option value="2">2 Columns</option>
+                <option value="3">3 Columns</option>
+            </select>
+        </div>
+
+        <!-- Loop to generate row selectors for each column -->
+        @for (int col = 0; col < NumberOfColumns; col++)
+        {
+            <div>
+                <label>Number of Rows for Column @(col + 1):</label>
+                <select value="@ColumnRows[col]" @onchange="@(e => UpdateRowCount(col, e))">
+                    <option value="1">1 Row</option>
+                    <option value="2">2 Rows</option>
+                    <option value="3">3 Rows</option>
+                    <option value="4">4 Rows</option>
+                </select>
+            </div>
+        }
+
+        <!-- Dropdown to select the View Type -->
+        <div>
+            <label>View Type:</label>
+            <select @bind="ViewType">
+                <option value="Table">Table</option>
+                <option value="Chart">Chart</option>
+                <option value="Label">Label</option>
+            </select>
+        </div>
+
+        <!-- Button to save the configuration -->
+        <button @onclick="SaveConfiguration">Save</button>
+    </div>
+
+    <div class="layout-container">
+
+        <label for="layoutSelect">Select Layout: </label>
+        <select id="layoutSelect" @onchange="OnSelectionChanged">
+            @foreach (var layout in layouts)
+            {
+                <option value="@(layout.Key)">@(layout.Value.name)</option>
+            }
+        </select>
+
+
+        @if (selectedLayout is not null)
+        {
+            <div class="layout-base">
+                <LayoutPage Layout="@selectedLayout" />
+            </div>
+        }
+    </div>
+
+
+</div>
+
+@code {
+    // Properties to hold the configuration data
+    private string TableName { get; set; }
+    private string PageTitle { get; set; }
+    private int numberOfColumns = 1; // Default to 1 column
+    private List<int> ColumnRows { get; set; } = new List<int>(); // List to hold number of rows for each column
+    private string ViewType { get; set; } = "Table"; // Default view type
+
+    // Property to handle number of columns selection
+    private int NumberOfColumns
+    {
+        get => numberOfColumns;
+        set
+        {
+            if (numberOfColumns != value)
+            {
+                numberOfColumns = value;
+                UpdateColumnRows(numberOfColumns); // Update the rows list when columns change
+            }
+        }
+    }
+
+    // Method called on component initialization
+    protected override void OnInitialized()
+    {
+        InitializeColumnRows();
+        //layout configuration
+        int sequence = 0;
+        layouts = new(serverConfiguration.LayoutSchemas.Select(layouts => new KeyValuePair<int, (string name, Layout layout)>(sequence++, layouts)));
+        selectedLayout = layouts.First().Value.layout;
+    }
+
+    //layout configuration
+    private void OnSelectionChanged(ChangeEventArgs e)
+    {
+        selectedLayout = layouts[int.Parse(e.Value!.ToString()!)].layout;
+    }
+    private ServerConfiguration serverConfiguration = new();
+    private Dictionary<int, (string name, Layout layout)> layouts = default!;
+    private Layout selectedLayout = default!;
+
+    // Initialize the ColumnRows list with default values
+    private void InitializeColumnRows()
+    {
+        ColumnRows = new List<int>();
+        for (int i = 0; i < NumberOfColumns; i++)
+        {
+            ColumnRows.Add(1); // Default to 1 row for each column
+        }
+    }
+
+    // Method to update the ColumnRows list when the number of columns changes
+    private void UpdateColumnRows(int numberOfColumns)
+    {
+        // Add default rows for new columns
+        while (ColumnRows.Count < numberOfColumns)
+        {
+            ColumnRows.Add(1);
+        }
+        // Remove extra columns
+        while (ColumnRows.Count > numberOfColumns)
+        {
+            ColumnRows.RemoveAt(ColumnRows.Count - 1);
+        }
+        StateHasChanged(); // Trigger UI update
+    }
+
+    // Method to update the row count for a specific column
+    private void UpdateRowCount(int col, ChangeEventArgs e)
+    {
+        if (col < ColumnRows.Count)
+        {
+            if (int.TryParse(e.Value.ToString(), out int rowCount))
+            {
+                ColumnRows[col] = rowCount;
+            }
+        }
+        else
+        {
+            Console.WriteLine($"Index out of range: {col} for ColumnRows with count {ColumnRows.Count}");
+        }
+    }
+
+    // Method to save the configuration
+    private async Task SaveConfiguration()
+    {
+        // Implement the logic to save the configuration
+        // This could involve saving to a database, a file, or other storage
+
+        // Navigate to a new page based on the PageTitle
+        Navigation.NavigateTo($"/newpage/{Uri.EscapeDataString(PageTitle)}");
+    }
+
+}

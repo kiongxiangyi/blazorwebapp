@@ -1,0 +1,35 @@
+﻿@using BLL_Shared.DAL
+@using DevExpress.Blazor;
+@using ShopFloorBlazorWebApp.Client.Models
+@rendermode InteractiveServer
+
+
+<DxChart Data="@items">
+    <DxChartLineSeries ArgumentField="@((LineChartDataModel i) => i.X)"
+                       ValueField="@((LineChartDataModel i) => i.Y)"
+                      Name="Precipitation">
+    </DxChartLineSeries>
+
+    <DxChartLegend Visible="false" />
+
+</DxChart>
+
+
+@code {
+    [Inject]
+    public IDBService DBService { get; set; } = default!;
+    private IEnumerable<LineChartDataModel> items = new List<LineChartDataModel>();
+
+    protected override void OnInitialized()
+    {
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                items = await DBService.LoadAsync<LineChartDataModel>("XYData");
+                await InvokeAsync(StateHasChanged);
+                Task.Delay(2000).Wait();
+            }
+        });
+    }
+}

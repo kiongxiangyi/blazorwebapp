@@ -1,0 +1,45 @@
+﻿@page "/layout"
+@rendermode InteractiveServer
+@using System
+@using BLL_Shared.Configurations
+@using BLL_Shared.Layouts;
+@using Orientation = BLL_Shared.Layouts.Orientation;
+
+<PageTitle>Layout Example</PageTitle>
+
+<div>
+    <label for="layoutSelect">Select Layout: </label>
+    <select id="layoutSelect" @onchange="OnSelectionChanged">
+        @foreach (var layout in layouts)
+        {
+            <option value="@(layout.Key)">@(layout.Value.name)</option>
+        }
+    </select>
+</div>
+
+@if(selectedLayout is not null)
+{
+    <div class="layout-base">
+        <LayoutPage Layout="@selectedLayout" />
+    </div>
+}
+
+@code {
+    private ServerConfiguration serverConfiguration = new();
+    private Dictionary<int, (string name, Layout layout)> layouts = default!;
+
+    private Layout selectedLayout = default!;
+
+    protected override void OnInitialized()
+    {
+        int sequence = 0;
+        layouts = new(serverConfiguration.LayoutSchemas.Select(layouts => new KeyValuePair<int, (string name, Layout layout)>(sequence++, layouts)));
+
+        selectedLayout = layouts.First().Value.layout;
+    }
+
+    private void OnSelectionChanged(ChangeEventArgs e)
+    {
+        selectedLayout = layouts[int.Parse(e.Value!.ToString()!)].layout;
+    }
+}

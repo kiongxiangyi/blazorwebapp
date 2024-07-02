@@ -1,0 +1,43 @@
+﻿@using BLL_Shared.DAL
+@using DevExpress.Blazor;
+@using ShopFloorBlazorWebApp.Client.Models
+@rendermode InteractiveServer
+
+
+<DxPieChart Data="@items">
+    <DxPieChartSeries ArgumentField="@((BarChartDataModel i) => i.X)"
+                      ValueField="@((BarChartDataModel i) => i.Y)"
+                      Name="Precipitation">
+    </DxPieChartSeries>
+
+    <DxChartLegend Visible="false" />
+
+</DxPieChart>
+
+@* <DxPieChart Data="@infos">
+    <DxPieChartSeries T="SessionInfo"
+                      TArgument="string"
+                      TValue="int"
+                      ArgumentField="@(i => i.Country)"
+                      ValueField="@(i => i.Total)">
+    </DxPieChartSeries>
+</DxPieChart> *@
+
+@code {
+    [Inject]
+    public IDBService DBService { get; set; } = default!;
+    private IEnumerable<PieChartDataModel> items = new List<PieChartDataModel>();
+
+    protected override void OnInitialized()
+    {
+        _ = Task.Run(async () =>
+        {
+            while (true)
+            {
+                items = await DBService.LoadAsync<PieChartDataModel>("XYData");
+                await InvokeAsync(StateHasChanged);
+                Task.Delay(2000).Wait();
+            }
+        });
+    }
+}

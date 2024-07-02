@@ -1,0 +1,73 @@
+﻿@page "/fullstackedbar"
+@using System.Collections.Generic
+@using DevExpress.Blazor
+
+<PageTitle>Full-Stacked Bar Chart</PageTitle>
+
+@if (salesData != null && salesData.Any())
+{
+    <DxChart Data="@salesData">
+        <DxChartTitle Text="Sales by Region and Product"/>
+        <DxChartLegend Position="RelativePosition.Outside" Orientation="Orientation.Horizontal"/>
+
+        <DxChartAxisX>
+            <DxChartTitle Text="Region"/>
+            <DxChartAxisLabel DisplayMode="ChartAxisLabelDisplayMode.Stagger"/>
+        </DxChartAxisX>
+        <DxChartAxisY>
+            <DxChartTitle Text="Sales (in millions)"/>
+        </DxChartAxisY>
+
+        <DxChartFullStackedBarSeries T="SalesInfo"
+                                     TArgument="string" 
+                                     TValue="double" 
+                                     Name="Product A" 
+                                     ArgumentField="@(info => info.Region)" 
+                                     ValueField="@(info => info.ProductA)"/>
+        <DxChartFullStackedBarSeries T="SalesInfo"
+                                     TArgument="string" 
+                                     TValue="double" 
+                                     Name="Product B" 
+                                     ArgumentField="@(info => info.Region)" 
+                                     ValueField="@(info => info.ProductB)"/>
+        <DxChartFullStackedBarSeries T="SalesInfo"
+                                     TArgument="string" 
+                                     TValue="double" 
+                                     Name="Product C" 
+                                     ArgumentField="@(info => info.Region)" 
+                                     ValueField="@(info => info.ProductC)"/>
+    </DxChart>
+}
+else
+{
+    <p>Loading data...</p>
+}
+
+@code {
+    private List<SalesInfo> salesData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        salesData = await Task.Run(() => GetSalesData());
+    }
+
+    public class SalesInfo
+    {
+        public string Region { get; set; }
+        public double ProductA { get; set; }
+        public double ProductB { get; set; }
+        public double ProductC { get; set; }
+    }
+
+    private List<SalesInfo> GetSalesData()
+    {
+        return new List<SalesInfo>
+        {
+            new SalesInfo { Region = "North America", ProductA = 40, ProductB = 55, ProductC = 70 },
+            new SalesInfo { Region = "Europe", ProductA = 55, ProductB = 60, ProductC = 80 },
+            new SalesInfo { Region = "Asia", ProductA = 70, ProductB = 75, ProductC = 90 },
+            new SalesInfo { Region = "Australia", ProductA = 65, ProductB = 70, ProductC = 85 },
+            new SalesInfo { Region = "South America", ProductA = 50, ProductB = 60, ProductC = 75 }
+        };
+    }
+}

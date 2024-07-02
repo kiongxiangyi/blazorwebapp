@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\BLL_Shared\\BLL_Shared.csproj": {}
+  },
+  "projects": {
+    "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\BLL_Shared\\BLL_Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\BLL_Shared\\BLL_Shared.csproj",
+        "projectName": "BLL_Shared",
+        "projectPath": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\BLL_Shared\\BLL_Shared.csproj",
+        "packagesPath": "C:\\Users\\kiong\\.nuget\\packages\\",
+        "outputPath": "C:\\TFS\\Tools\\GTMS_ShopfloorApp\\BLL_Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kiong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/Pr6PcldhbGqW7Xic739rbTAHCCZzKg4hj9qbP5OuSvvAkNvAL9/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.301/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

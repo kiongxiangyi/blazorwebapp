@@ -1,0 +1,1 @@
+C:\TFS\Tools\GTMS_ShopfloorApp\ShopFloorBlazorWebApp\ShopFloorBlazorWebApp.Client\obj\Release\net8.0\browser-wasm\PubTmp\Out\web.config
